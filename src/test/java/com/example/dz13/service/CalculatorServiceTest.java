@@ -4,6 +4,7 @@ import com.example.dz13.CalculatorService.CalculatorService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CalculatorServiceTest {
     CalculatorService calculatorService = new CalculatorService();
@@ -57,9 +58,9 @@ public class CalculatorServiceTest {
 
     }
     @Test
-    void divideByZero(){
+    void divisionByZero(){
 
-        assertTrows(DivisionByZero.class,()->calculatorService.divide(10,0));
+        assertThrows(DivisionByZeroException.class,()->calculatorService.divide(10,0));
 
     }
 }
