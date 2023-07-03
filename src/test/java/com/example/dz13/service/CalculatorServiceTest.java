@@ -1,12 +1,12 @@
 package com.example.dz13.service;
 
-import com.example.dz13.CalculatorService.CalculatorServiceImpl;
+import com.example.dz13.CalculatorService.CalculatorService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorServiceTest {
-    CalculatorServiceImpl calculatorService = new CalculatorServiceImpl();
+    CalculatorService calculatorService = new CalculatorService();
 
     @Test
     void plusPositive(){

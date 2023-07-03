@@ -3,7 +3,7 @@ package com.example.dz13.CalculatorService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CalculatorServiceImpl {
+public class CalculatorService {
     public int plus (int a, int b){
         return a+b;
     }
@@ -14,7 +14,11 @@ public class CalculatorServiceImpl {
     public int multiply(int a, int b){
         return a*b;
     }
-    public int divide(int a, int b){
-        return a/b;
+
+    public int divide (int a, int b){
+        if (b==0){
+            throw new DivisionByZeroException();
+        }
+        return a / b;
     }
 }

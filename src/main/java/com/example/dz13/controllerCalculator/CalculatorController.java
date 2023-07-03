@@ -1,7 +1,7 @@
 package com.example.dz13.controllerCalculator;
 
 
-import com.example.dz13.CalculatorService.CalculatorServiceImpl;
+import com.example.dz13.CalculatorService.CalculatorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
     @RequestMapping("/calculator")
     public class CalculatorController {
 
-        private final CalculatorServiceImpl calculatorService;
+        private final CalculatorService calculatorService;
 
-        public CalculatorController(CalculatorServiceImpl calculatorService) {
+        public CalculatorController(CalculatorService calculatorService) {
             this.calculatorService = calculatorService;
         }
         @GetMapping()
@@ -37,11 +37,12 @@ import org.springframework.web.bind.annotation.RestController;
         }
         @GetMapping(path="/divide")
         public String divide(@RequestParam("num1") int a,@RequestParam("num2") int b){
-            if(b==0){
-                return "На ноль делить нельзя.";
+            try {
+                int result = calculatorService.divide(a, b);
+                return String.format("%s/%s=%s", a, b, result);
+            } catch (Exception e){
+                return "на ноль делить нельзя";
             }
-            int result= calculatorService.divide(a,b);
-            return String.format("%s/%s=%s", a, b, result);
         }
 
 
