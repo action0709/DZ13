@@ -3,7 +3,7 @@ package com.example.dz13.CalculatorService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CalculatorService {
+public class CalculatorServiceImpl {
     public int plus (int a, int b){
         return a+b;
     }
