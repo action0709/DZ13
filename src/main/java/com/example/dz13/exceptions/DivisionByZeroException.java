@@ -1,5 +1,5 @@
 package com.example.dz13.exceptions;
 
-public class DivisionByZeroException {
-
+public class DivisionByZeroException extends RuntimeException {
+public DivisionByZeroException (){}
 }

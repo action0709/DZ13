@@ -1,6 +1,7 @@
 package com.example.dz13.service;
 
 import com.example.dz13.CalculatorService.CalculatorService;
+import com.example.dz13.exceptions.DivisionByZeroException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
