@@ -13,41 +13,46 @@ import java.util.stream.Stream;
 
 public class ParametrizedCalculatoreServiceTest {
     CalculatorService calculatorService = new CalculatorService();
-    static Stream<Arguments> dataForPlus(){
-        return Stream.of(Arguments.of(3,5,8),
-                Arguments.of(200,-20,180),
-                Arguments.of(-100,50,-50)
+
+    static Stream<Arguments> dataForPlus() {
+        return Stream.of(Arguments.of(3, 5, 8),
+                Arguments.of(200, -20, 180),
+                Arguments.of(-100, 50, -50)
         );
-    }
-    @ParameterizedTest
-    @MethodSource("dataForPlus")
-    void plus (int n1, int n2,int expected){
-        assertEquals(expected, calculatorService.plus(n1,n2));
     }
 
-    static Stream<Arguments> data(){
-        return Stream.of(Arguments.of(3,5),
-                Arguments.of(200,-20),
-                Arguments.of(-100,50),
-                Arguments.of(-200,50)
+    @ParameterizedTest
+    @MethodSource("dataForPlus")
+    void plus(int n1, int n2, int expected) {
+        assertEquals(expected, calculatorService.plus(n1, n2));
+    }
+
+    static Stream<Arguments> data() {
+        return Stream.of(Arguments.of(3, 5),
+                Arguments.of(200, -20),
+                Arguments.of(-100, 50),
+                Arguments.of(-200, 50)
         );
     }
+
     @ParameterizedTest
     @MethodSource("data")
-    void plus (int n1, int n2){
+    void plus(int n1, int n2) {
         int expected = n1 - n2;
-        assertEquals(expected, calculatorService.minus(n1,n2));
+        assertEquals(expected, calculatorService.minus(n1, n2));
     }
+
     @ParameterizedTest
     @MethodSource("data")
-    void multiplay (int n1, int n2){
+    void multiplay(int n1, int n2) {
         int expected = n1 * n2;
-        assertEquals(expected, calculatorService.multiply(n1,n2));
+        assertEquals(expected, calculatorService.multiply(n1, n2));
     }
+
     @ParameterizedTest
     @MethodSource("data")
-    void divide (int n1, int n2){
+    void divide(int n1, int n2) {
         int expected = n1 / n2;
-        assertEquals(expected, calculatorService.divide(n1,n2));
+        assertEquals(expected, calculatorService.divide(n1, n2));
     }
 }
