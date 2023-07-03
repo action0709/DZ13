@@ -38,4 +38,16 @@ public class ParametrizedCalculatoreServiceTest {
         int expected = n1 - n2;
         assertEquals(expected, calculatorService.minus(n1,n2));
     }
+    @ParameterizedTest
+    @MethodSource("data")
+    void multiplay (int n1, int n2){
+        int expected = n1 * n2;
+        assertEquals(expected, calculatorService.multiply(n1,n2));
+    }
+    @ParameterizedTest
+    @MethodSource("data")
+    void divide (int n1, int n2){
+        int expected = n1 / n2;
+        assertEquals(expected, calculatorService.divide(n1,n2));
+    }
 }
